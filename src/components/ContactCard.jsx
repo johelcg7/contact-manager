@@ -1,12 +1,19 @@
 import React from 'react';
+import { Card } from 'react-bootstrap';
 
-function ContactCard({ contact }) {
-  return (
-    <div className="contact-card" onClick={() => onClick(contact)} >
-      <h2>{contact.name}</h2>
-      <p>{contact.phone}</p>
-    </div>
-  );
-}
+const ContactCard = ({ contact, onClick }) => {
+    return (
+        <Card className="contact-card" onClick={() => onClick(contact)}>
+            <Card.Body>
+                <Card.Title>{contact.fullname}</Card.Title>
+                <Card.Text>
+                    <p>Phone: {contact.phonenumber}</p>
+                    <p>Email: {contact.email}</p>
+                    <p>Type: {contact.type}</p>
+                </Card.Text>
+            </Card.Body>
+        </Card>
+    );
+};
 
 export default ContactCard;
