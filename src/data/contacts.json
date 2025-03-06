@@ -1,0 +1,182 @@
+[
+    {
+        "fullname": "John Doe",
+        "phonenumber": "123-456-7890",
+        "email": "john.doe@example.com",
+        "type": "familia"
+    },
+    {
+        "fullname": "Jane Smith",
+        "phonenumber": "234-567-8901",
+        "email": "jane.smith@example.com",
+        "type": "social"
+    },
+    {
+        "fullname": "Robert Johnson",
+        "phonenumber": "345-678-9012",
+        "email": "robert.johnson@example.com",
+        "type": "trabajo"
+    },
+    {
+        "fullname": "Emily Davis",
+        "phonenumber": "456-789-0123",
+        "email": "emily.davis@example.com",
+        "type": "familia"
+    },
+    {
+        "fullname": "Michael Brown",
+        "phonenumber": "567-890-1234",
+        "email": "michael.brown@example.com",
+        "type": "social"
+    },
+    {
+        "fullname": "Jessica Wilson",
+        "phonenumber": "678-901-2345",
+        "email": "jessica.wilson@example.com",
+        "type": "trabajo"
+    },
+    {
+        "fullname": "David Martinez",
+        "phonenumber": "789-012-3456",
+        "email": "david.martinez@example.com",
+        "type": "familia"
+    },
+    {
+        "fullname": "Sarah Anderson",
+        "phonenumber": "890-123-4567",
+        "email": "sarah.anderson@example.com",
+        "type": "social"
+    },
+    {
+        "fullname": "James Taylor",
+        "phonenumber": "901-234-5678",
+        "email": "james.taylor@example.com",
+        "type": "trabajo"
+    },
+    {
+        "fullname": "Laura Thomas",
+        "phonenumber": "012-345-6789",
+        "email": "laura.thomas@example.com",
+        "type": "familia"
+    },
+    {
+        "fullname": "Daniel Lee",
+        "phonenumber": "123-456-7891",
+        "email": "daniel.lee@example.com",
+        "type": "social"
+    },
+    {
+        "fullname": "Sophia Harris",
+        "phonenumber": "234-567-8902",
+        "email": "sophia.harris@example.com",
+        "type": "trabajo"
+    },
+    {
+        "fullname": "Matthew Clark",
+        "phonenumber": "345-678-9013",
+        "email": "matthew.clark@example.com",
+        "type": "familia"
+    },
+    {
+        "fullname": "Olivia Lewis",
+        "phonenumber": "456-789-0124",
+        "email": "olivia.lewis@example.com",
+        "type": "social"
+    },
+    {
+        "fullname": "Christopher Walker",
+        "phonenumber": "567-890-1235",
+        "email": "christopher.walker@example.com",
+        "type": "trabajo"
+    },
+    {
+        "fullname": "Ava Hall",
+        "phonenumber": "678-901-2346",
+        "email": "ava.hall@example.com",
+        "type": "familia"
+    },
+    {
+        "fullname": "Joshua Allen",
+        "phonenumber": "789-012-3457",
+        "email": "joshua.allen@example.com",
+        "type": "social"
+    },
+    {
+        "fullname": "Isabella Young",
+        "phonenumber": "890-123-4568",
+        "email": "isabella.young@example.com",
+        "type": "trabajo"
+    },
+    {
+        "fullname": "Andrew King",
+        "phonenumber": "901-234-5679",
+        "email": "andrew.king@example.com",
+        "type": "familia"
+    },
+    {
+        "fullname": "Mia Wright",
+        "phonenumber": "012-345-6790",
+        "email": "mia.wright@example.com",
+        "type": "social"
+    },
+    {
+        "fullname": "Ryan Scott",
+        "phonenumber": "123-456-7892",
+        "email": "ryan.scott@example.com",
+        "type": "trabajo"
+    },
+    {
+        "fullname": "Charlotte Green",
+        "phonenumber": "234-567-8903",
+        "email": "charlotte.green@example.com",
+        "type": "familia"
+    },
+    {
+        "fullname": "Ethan Adams",
+        "phonenumber": "345-678-9014",
+        "email": "ethan.adams@example.com",
+        "type": "social"
+    },
+    {
+        "fullname": "Amelia Baker",
+        "phonenumber": "456-789-0125",
+        "email": "amelia.baker@example.com",
+        "type": "trabajo"
+    },
+    {
+        "fullname": "Alexander Gonzalez",
+        "phonenumber": "567-890-1236",
+        "email": "alexander.gonzalez@example.com",
+        "type": "familia"
+    },
+    {
+        "fullname": "Harper Nelson",
+        "phonenumber": "678-901-2347",
+        "email": "harper.nelson@example.com",
+        "type": "social"
+    },
+    {
+        "fullname": "Benjamin Carter",
+        "phonenumber": "789-012-3458",
+        "email": "benjamin.carter@example.com",
+        "type": "trabajo"
+    },
+    {
+        "fullname": "Abigail Mitchell",
+        "phonenumber": "890-123-4569",
+        "email": "abigail.mitchell@example.com",
+        "type": "familia"
+    },
+    {
+        "fullname": "Lucas Perez",
+        "phonenumber": "901-234-5680",
+        "email": "lucas.perez@example.com",
+        "type": "social"
+    },
+    {
+        "fullname": "Ella Roberts",
+        "phonenumber": "012-345-6791",
+        "email": "ella.roberts@example.com",
+        "type": "trabajo"
+    }
+]

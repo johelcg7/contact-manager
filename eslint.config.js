@@ -4,6 +4,14 @@ import react from 'eslint-plugin-react'
 import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+import './App.css';
+
+ReactDOM.render(<App />, document.getElementById('root'));
+
 export default [
   { ignores: ['dist'] },
   {
@@ -28,6 +36,7 @@ export default [
       ...react.configs.recommended.rules,
       ...react.configs['jsx-runtime'].rules,
       ...reactHooks.configs.recommended.rules,
+      "react/prop-types": "off", // Esto desactiva la regla proptypes
       'react/jsx-no-target-blank': 'off',
       'react-refresh/only-export-components': [
         'warn',
