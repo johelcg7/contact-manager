@@ -17,7 +17,7 @@ function App() {
     const [contacts, setContacts] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState(null);
-    const [newContact, setNewContact] = useState({ name: '', email: '' });
+    const [newContact, setNewContact] = useState({ fullname: '', phonenumber: '', email: '', type: 'familia' });
 
     const toggleView = () => {
         setIsListView(!isListView);
@@ -60,7 +60,7 @@ function App() {
     const handleFormSubmit = (e) => {
         e.preventDefault();
         handleSaveContact(newContact);
-        setNewContact({ name: '', email: '' });
+        setNewContact({ fullname: '', phonenumber: '', email: '', type: 'familia' });
     };
 
     useEffect(() => {
@@ -88,13 +88,22 @@ function App() {
 
             <h1>Lista de Contactos</h1>
             <Form onSubmit={handleFormSubmit}>
-                <Form.Group controlId="formName">
-                    <Form.Label>Nombre</Form.Label>
+                <Form.Group controlId="formFullname">
+                    <Form.Label>Nombre Completo</Form.Label>
                     <Form.Control
                         type="text"
-                        placeholder="Ingresa el nombre"
-                        value={newContact.name}
-                        onChange={(e) => setNewContact({ ...newContact, name: e.target.value })}
+                        placeholder="Ingresa el nombre completo"
+                        value={newContact.fullname}
+                        onChange={(e) => setNewContact({ ...newContact, fullname: e.target.value })}
+                    />
+                </Form.Group>
+                <Form.Group controlId="formPhonenumber">
+                    <Form.Label>Número Telefónico</Form.Label>
+                    <Form.Control
+                        type="text"
+                        placeholder="Ingresa el número telefónico"
+                        value={newContact.phonenumber}
+                        onChange={(e) => setNewContact({ ...newContact, phonenumber: e.target.value })}
                     />
                 </Form.Group>
                 <Form.Group controlId="formEmail">
@@ -105,6 +114,18 @@ function App() {
                         value={newContact.email}
                         onChange={(e) => setNewContact({ ...newContact, email: e.target.value })}
                     />
+                </Form.Group>
+                <Form.Group controlId="formType">
+                    <Form.Label>Tipo</Form.Label>
+                    <Form.Control
+                        as="select"
+                        value={newContact.type}
+                        onChange={(e) => setNewContact({ ...newContact, type: e.target.value })}
+                    >
+                        <option value="familia">Familia</option>
+                        <option value="social">Social</option>
+                        <option value="trabajo">Trabajo</option>
+                    </Form.Control>
                 </Form.Group>
                 <Button variant="primary" type="submit" disabled={isLoading}>
                     {isLoading ? <Spinner animation="border" size="sm" /> : 'Agregar Contacto'}

@@ -1,8 +1,8 @@
-const API_URL_SERV = "https://enter-mockapi.vercel.app/api/contacts"
+const API_URL = "https://entermocks.vercel.app/api/contacts";
 
 export const fetchContacts = async () => {
     try {
-        const response = await fetch(`${API_URL_SERV}`);
+        const response = await fetch(`${API_URL}`);
         if (!response.ok) {
             throw new Error('Ocurrió un error al cargar contactos');
         }
@@ -14,7 +14,7 @@ export const fetchContacts = async () => {
 
 export const saveContact = async (contact) => {
     try {
-        const response = await fetch(`${API_URL_SERV}`, {
+        const response = await fetch(`${API_URL}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

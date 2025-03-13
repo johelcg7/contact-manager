@@ -7,11 +7,13 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "flatrepo": "flatrepo"
   },
   "dependencies": {
     "bootstrap": "^5.3.3",
     "dotenv": "^16.4.7",
+    "flatrepo": "^1.2.0",
     "react": "^19.0.0",
     "react-bootstrap": "^2.10.9",
     "react-dom": "^19.0.0"
