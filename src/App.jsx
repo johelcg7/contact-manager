@@ -18,6 +18,7 @@ function App() {
     const [isLoading, setIsLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState(null);
     const [newContact, setNewContact] = useState({ fullname: '', phonenumber: '', email: '', type: 'familia' });
+    const [searchTerm, setSearchTerm] = useState('');
 
     const toggleView = () => {
         setIsListView(!isListView);
@@ -35,10 +36,10 @@ function App() {
         setIsLoading(true);
         setErrorMessage(null);
         try {
-            const data = await fetchContacts();
-            setContacts(data);
+            const data = await fetchContacts(); // Llama a la API
+            setContacts(data); // Almacena los datos en el estado
         } catch (error) {
-            setErrorMessage(error.message);
+            setErrorMessage(error.message); // Maneja errores
         } finally {
             setIsLoading(false);
         }
@@ -67,6 +68,10 @@ function App() {
         loadContacts();
     }, []);
 
+    const filteredContacts = contacts.filter((contact) =>
+        contact.fullname.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+
     return (
         <Container>
             <Header />
@@ -74,7 +79,7 @@ function App() {
                 {isListView ? 'Cambiar a Vista de Tarjetas' : 'Cambiar a Vista de Lista'}
             </Button>
             <Button variant="secondary" onClick={loadContacts} disabled={isLoading}>
-                {isLoading ? <Spinner animation="border" size="sm" /> : 'Cargar Contactos'}
+                {isLoading ? <Spinner animation="border" size="sm" /> : 'Refrescar Datos'}
             </Button>
 
             {errorMessage && (
@@ -85,6 +90,15 @@ function App() {
                     </Button>
                 </Alert>
             )}
+
+            {isLoading && <p>Cargando...</p>}
+
+            <Form.Control
+                type="text"
+                placeholder="Buscar contactos..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+            />
 
             <h1>Lista de Contactos</h1>
             <Form onSubmit={handleFormSubmit}>
@@ -134,9 +148,9 @@ function App() {
             <Row>
                 <Col>
                     {isListView ? (
-                        <ContactList contacts={contacts} onContactClick={handleContactClick} />
+                        <ContactList contacts={filteredContacts} onContactClick={handleContactClick} />
                     ) : (
-                        <ContactGrid contacts={contacts} onContactClick={handleContactClick} />
+                        <ContactGrid contacts={filteredContacts} onContactClick={handleContactClick} />
                     )}
                 </Col>
                 <Col>
