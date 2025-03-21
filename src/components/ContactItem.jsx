@@ -1,9 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const ContactItem = ({ contact }) => {
+const ContactItem = ({ contact, onClick, isSelected }) => {
     return (
-        <div className="contact-item">
+        <div
+            className={`contact-item ${isSelected ? 'selected' : ''}`}
+            onClick={() => onClick(contact)}
+        >
             <h3>
                 <Link to={`/contact/${contact.id}`}>{contact.fullname}</Link>
             </h3>
