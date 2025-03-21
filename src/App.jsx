@@ -10,7 +10,7 @@ import ContactList from './components/ContactList';
 import ContactGrid from './components/ContactGrid';
 import ContactPinned from './components/ContactPinned';
 import ContactDetail from './components/ContactDetail';
-
+import ContactForm from './components/ContactForm';
 
 // Importar funciones de servicio
 import { fetchContacts, saveContact } from './services/contactService';
@@ -124,54 +124,11 @@ function App() {
                 <Route
                     path="/create"
                     element={
-                        <Form onSubmit={(e) => {
-                            e.preventDefault();
-                            handleSaveContact(newContact);
-                            setNewContact({ fullname: '', phonenumber: '', email: '', type: 'familia' });
-                        }}>
-                            <Form.Group controlId="formFullname">
-                                <Form.Label>Nombre Completo</Form.Label>
-                                <Form.Control
-                                    type="text"
-                                    placeholder="Ingresa el nombre completo"
-                                    value={newContact.fullname}
-                                    onChange={(e) => setNewContact({ ...newContact, fullname: e.target.value })}
-                                />
-                            </Form.Group>
-                            <Form.Group controlId="formPhonenumber">
-                                <Form.Label>Número Telefónico</Form.Label>
-                                <Form.Control
-                                    type="text"
-                                    placeholder="Ingresa el número telefónico"
-                                    value={newContact.phonenumber}
-                                    onChange={(e) => setNewContact({ ...newContact, phonenumber: e.target.value })}
-                                />
-                            </Form.Group>
-                            <Form.Group controlId="formEmail">
-                                <Form.Label>Email</Form.Label>
-                                <Form.Control
-                                    type="email"
-                                    placeholder="Ingresa el email"
-                                    value={newContact.email}
-                                    onChange={(e) => setNewContact({ ...newContact, email: e.target.value })}
-                                />
-                            </Form.Group>
-                            <Form.Group controlId="formType">
-                                <Form.Label>Tipo</Form.Label>
-                                <Form.Control
-                                    as="select"
-                                    value={newContact.type}
-                                    onChange={(e) => setNewContact({ ...newContact, type: e.target.value })}
-                                >
-                                    <option value="familia">Familia</option>
-                                    <option value="social">Social</option>
-                                    <option value="trabajo">Trabajo</option>
-                                </Form.Control>
-                            </Form.Group>
-                            <Button variant="primary" type="submit" disabled={isLoading}>
-                                {isLoading ? <Spinner animation="border" size="sm" /> : 'Agregar Contacto'}
-                            </Button>
-                        </Form>
+                        <ContactForm
+                            onSave={(newContact) => {
+                                setContacts([...contacts, { ...newContact, id: contacts.length + 1 }]); // Añade el nuevo contacto
+                            }}
+                        />
                     }
                 />
                 <Route
