@@ -23,8 +23,7 @@ function App() {
     const [errorMessage, setErrorMessage] = useState(null);
     const [newContact, setNewContact] = useState({ fullname: '', phonenumber: '', email: '', type: 'familia' });
     const [searchTerm, setSearchTerm] = useState('');
-
-    
+    const [selectionHistory, setSelectionHistory] = useState([]);
 
     const toggleView = () => {
         setIsListView(!isListView);
@@ -55,6 +54,14 @@ function App() {
         contact.fullname.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
+    const handleContactClick = (contact) => {
+        setFeaturedContact(contact);
+        setSelectionHistory((prevHistory) => {
+            const newHistory = [contact, ...prevHistory];
+            return newHistory.slice(0, 3); // Mantener solo los últimos 3
+        });
+    };
+
     return (
         <Container fluid>
             <Header />
@@ -83,9 +90,16 @@ function App() {
                             <Row>
                                 <Col xs={12} md={8}>
                                     {isListView ? (
-                                        <ContactList contacts={filteredContacts} onContactClick={setFeaturedContact} />
+                                        <ContactList
+                                            contacts={filteredContacts}
+                                            onContactClick={handleContactClick}
+                                            selectedContact={featuredContact}
+                                        />
                                     ) : (
-                                        <ContactGrid contacts={filteredContacts} onContactClick={setFeaturedContact} />
+                                        <ContactGrid
+                                            contacts={filteredContacts}
+                                            onContactClick={handleContactClick}
+                                        />
                                     )}
                                 </Col>
                                 <Col xs={12} md={4}>
@@ -94,6 +108,14 @@ function App() {
                                     ) : (
                                         <Alert variant="info" className="p-2">Ningún contacto seleccionado</Alert>
                                     )}
+                                    <div className="selection-history mt-3">
+                                        <h5>Historial de Selección</h5>
+                                        <ul>
+                                            {selectionHistory.map((contact, index) => (
+                                                <li key={index}>{contact.fullname}</li>
+                                            ))}
+                                        </ul>
+                                    </div>
                                 </Col>
                             </Row>
                         </>

@@ -66,6 +66,29 @@ header h1 {
   border-color: var(--primary-color);
 }
 
+.contact-item.selected {
+  background-color: #d1ecf1;
+  border-color: #17a2b8;
+  transition: background-color 0.3s ease;
+}
+
+.selection-history {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.selection-history ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.selection-history li {
+    margin-bottom: 0.5rem;
+}
+
 @media (max-width: 768px) {
   #root {
     padding: 0.5rem;
