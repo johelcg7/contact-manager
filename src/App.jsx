@@ -63,80 +63,84 @@ function App() {
     };
 
     return (
-        <Container fluid>
+        <>
             <Header />
-            <NavigationBar />
-            <Routes>
-                <Route
-                    path="/"
-                    element={
-                        <>
-                            <div className="d-flex justify-content-between align-items-center mb-2">
-                                <Button variant="primary" size="sm" onClick={toggleView}>
-                                    {isListView ? 'Vista Tarjetas' : 'Vista Lista'}
-                                </Button>
-                                <Button variant="secondary" size="sm" onClick={loadContacts} disabled={isLoading}>
-                                    {isLoading ? <Spinner animation="border" size="sm" /> : 'Refrescar'}
-                                </Button>
-                            </div>
-                            <Form.Control
-                                type="text"
-                                placeholder="Buscar..."
-                                value={searchTerm}
-                                onChange={(e) => setSearchTerm(e.target.value)}
-                                className="mb-2"
-                                size="sm"
-                            />
-                            <Row>
-                                <Col xs={12} md={8}>
-                                    {isListView ? (
-                                        <ContactList
-                                            contacts={filteredContacts}
-                                            onContactClick={handleContactClick}
-                                            selectedContact={featuredContact}
-                                        />
-                                    ) : (
-                                        <ContactGrid
-                                            contacts={filteredContacts}
-                                            onContactClick={handleContactClick}
-                                        />
-                                    )}
-                                </Col>
-                                <Col xs={12} md={4}>
-                                    {featuredContact ? (
-                                        <ContactPinned contact={featuredContact} onClear={() => setFeaturedContact(null)} />
-                                    ) : (
-                                        <Alert variant="info" className="p-2">Ningún contacto seleccionado</Alert>
-                                    )}
-                                    <div className="selection-history mt-3">
-                                        <h5>Historial de Selección</h5>
-                                        <ul>
-                                            {selectionHistory.map((contact, index) => (
-                                                <li key={index}>{contact.fullname}</li>
-                                            ))}
-                                        </ul>
+            <div className="main-content">
+                <Container fluid>
+                    <NavigationBar />
+                    <Routes>
+                        <Route
+                            path="/"
+                            element={
+                                <>
+                                    <div className="d-flex justify-content-between align-items-center mb-2">
+                                        <Button variant="primary" size="sm" onClick={toggleView}>
+                                            {isListView ? 'Vista Tarjetas' : 'Vista Lista'}
+                                        </Button>
+                                        <Button variant="secondary" size="sm" onClick={loadContacts} disabled={isLoading}>
+                                            {isLoading ? <Spinner animation="border" size="sm" /> : 'Refrescar'}
+                                        </Button>
                                     </div>
-                                </Col>
-                            </Row>
-                        </>
-                    }
-                />
-                <Route
-                    path="/create"
-                    element={
-                        <ContactForm
-                            onSave={(newContact) => {
-                                setContacts([...contacts, { ...newContact, id: contacts.length + 1 }]); // Añade el nuevo contacto
-                            }}
+                                    <Form.Control
+                                        type="text"
+                                        placeholder="Buscar..."
+                                        value={searchTerm}
+                                        onChange={(e) => setSearchTerm(e.target.value)}
+                                        className="mb-2"
+                                        size="sm"
+                                    />
+                                    <Row>
+                                        <Col xs={12} md={8}>
+                                            {isListView ? (
+                                                <ContactList
+                                                    contacts={filteredContacts}
+                                                    onContactClick={handleContactClick}
+                                                    selectedContact={featuredContact}
+                                                />
+                                            ) : (
+                                                <ContactGrid
+                                                    contacts={filteredContacts}
+                                                    onContactClick={handleContactClick}
+                                                />
+                                            )}
+                                        </Col>
+                                        <Col xs={12} md={4}>
+                                            {featuredContact ? (
+                                                <ContactPinned contact={featuredContact} onClear={() => setFeaturedContact(null)} />
+                                            ) : (
+                                                <Alert variant="info" className="p-2">Ningún contacto seleccionado</Alert>
+                                            )}
+                                            <div className="selection-history mt-3">
+                                                <h5>Historial de Selección</h5>
+                                                <ul>
+                                                    {selectionHistory.map((contact, index) => (
+                                                        <li key={index}>{contact.fullname}</li>
+                                                    ))}
+                                                </ul>
+                                            </div>
+                                        </Col>
+                                    </Row>
+                                </>
+                            }
                         />
-                    }
-                />
-                <Route
-                    path="/contact/:id"
-                    element={<ContactDetail contacts={contacts} />}
-                />
-            </Routes>
-        </Container>
+                        <Route
+                            path="/create"
+                            element={
+                                <ContactForm
+                                    onSave={(newContact) => {
+                                        setContacts([...contacts, { ...newContact, id: contacts.length + 1 }]); // Añade el nuevo contacto
+                                    }}
+                                />
+                            }
+                        />
+                        <Route
+                            path="/contact/:id"
+                            element={<ContactDetail contacts={contacts} />}
+                        />
+                    </Routes>
+                </Container>
+            </div>
+        </>
     );
 }
 
