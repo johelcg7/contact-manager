@@ -1,8 +1,10 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 
 function ContactDetail({ contacts }) {
     const { id } = useParams();
+    const navigate = useNavigate();
     const contact = contacts.find((contact) => contact.id === parseInt(id));
 
     if (!contact) {
@@ -15,6 +17,9 @@ function ContactDetail({ contacts }) {
             <p><strong>Teléfono:</strong> {contact.phonenumber}</p>
             <p><strong>Email:</strong> {contact.email}</p>
             <p><strong>Tipo:</strong> {contact.type}</p>
+            <Button variant="primary" onClick={() => navigate('/')}>
+                Volver a la Lista
+            </Button>
         </div>
     );
 }

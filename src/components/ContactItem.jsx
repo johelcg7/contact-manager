@@ -13,19 +13,21 @@ const ContactItem = ({ contact, onClick, isSelected }) => {
 
     return (
         <div
-            className={`contact-item ${isSelected ? 'selected' : ''}`}
+            className={`contact-list-item ${isSelected ? 'selected' : ''}`}
             onClick={() => onClick(contact)}
         >
-            <div className="d-flex justify-content-between align-items-center">
+            <div className="contact-info">
                 <h3>
                     <Link to={`/contact/${contact.id}`} style={{ textDecoration: 'none' }}>
                         {contact.fullname}
                     </Link>
                 </h3>
+                <p><i className="bi bi-telephone me-2"></i>{contact.phonenumber}</p>
+                <p><i className="bi bi-envelope me-2"></i>{contact.email}</p>
+            </div>
+            <div className="contact-type">
                 <Badge bg={getBadgeVariant(contact.type)}>{contact.type}</Badge>
             </div>
-            <p><i className="bi bi-telephone me-2"></i>{contact.phonenumber}</p>
-            <p><i className="bi bi-envelope me-2"></i>{contact.email}</p>
         </div>
     );
 };
