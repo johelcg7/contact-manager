@@ -1,0 +1,17 @@
+.fixed-navbar {
+    height: 60px; /* Altura fija */
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra para un diseño moderno */
+    z-index: 1030; /* Asegura que el navbar esté por encima de otros elementos */
+}
+
+.fixed-navbar .nav-link {
+    font-size: 14px; /* Tamaño de fuente consistente */
+    padding: 0 10px; /* Espaciado entre enlaces */
+}
+
+.fixed-navbar .navbar-brand {
+    font-size: 18px; /* Tamaño de fuente para el título */
+    font-weight: bold;
+}
