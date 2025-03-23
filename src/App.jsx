@@ -11,6 +11,7 @@ import ContactGrid from './components/ContactGrid';
 import ContactPinned from './components/ContactPinned';
 import ContactDetail from './components/ContactDetail';
 import ContactForm from './components/ContactForm';
+import ScheduleMeeting from './components/ScheduleMeeting';
 
 import { fetchContacts } from './services/contactService';
 
@@ -238,6 +239,10 @@ function App() {
                         <Route
                             path="/contact/:id"
                             element={<ContactDetail contacts={contacts} />}
+                        />
+                        <Route
+                            path="/contact/:id/schedule"
+                            element={<ScheduleMeeting />}
                         />
                     </Routes>
                 </Container>

@@ -1,13 +1,18 @@
 /* Contenedor principal */
 .contact-detail {
     border: none;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    margin: 16px auto;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    margin: 20px auto;
     background-color: #ffffff;
-    padding: 1.5rem;
+    padding: 2rem;
     max-width: 600px;
     color: initial;
+    transition: transform 0.3s ease;
+}
+
+.contact-detail:hover {
+    transform: translateY(-4px);
 }
 
 /* Header con avatar y nombre */
@@ -21,17 +26,24 @@
 }
 
 .contact-detail-avatar {
-    width: 60px;
-    height: 60px;
-    background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(145deg, #1a237e 30%, #3949ab 100%);
     color: white;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-weight: 600;
-    box-shadow: 0 4px 8px rgba(26,35,126,0.2);
+    box-shadow: 0 6px 15px rgba(26,35,126,0.3);
+    border: 3px solid white;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-detail-avatar:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(26,35,126,0.4);
 }
 
 .contact-detail-title {
@@ -64,11 +76,17 @@
 }
 
 .contact-detail-field {
-    background: #f8f9fa;
-    padding: 0.8rem;
-    border-radius: 8px;
-    border-left: 3px solid #1a237e;
-    backdrop-filter: blur(5px);
+    background: linear-gradient(to right, #f8f9fa, #ffffff);
+    padding: 1rem;
+    border-radius: 12px;
+    border-left: 4px solid #1a237e;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-detail-field:hover {
+    transform: translateX(4px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .contact-detail-field label {
@@ -96,48 +114,66 @@
 /* Botones de acción */
 .contact-detail-actions {
     display: flex;
-    gap: 0.8rem;
+    gap: 1rem;
     justify-content: flex-end;
-    margin-top: 1rem;
-    padding-top: 1rem;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
     border-top: 1px solid #eee;
 }
 
 .contact-detail-actions .btn {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem 1rem;
-    font-size: 0.9rem;
-    font-weight: 500;
-    border-radius: 6px;
-    transition: all 0.2s ease;
+    gap: 0.8rem;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 12px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
 }
 
-.contact-detail-actions .btn i {
-    font-size: 1.1rem;
+.contact-detail-actions .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 .contact-detail-actions .btn-outline-primary {
-    border: 1px solid #1a237e;
+    border: 2px solid #1a237e;
     color: #1a237e;
-    background: rgba(57, 73, 171, 0.1);
+    background: rgba(26, 35, 126, 0.05);
 }
 
 .contact-detail-actions .btn-outline-primary:hover {
-    background: #3949ab;
+    background: #1a237e;
     color: white;
-    transform: translateY(-1px);
+    border-color: transparent;
 }
 
 .contact-detail-actions .btn-success {
-    background: rgba(37, 211, 102, 0.8);
+    background: linear-gradient(145deg, #25d366, #128C7E);
     border: none;
+    color: white;
 }
 
 .contact-detail-actions .btn-success:hover {
-    background: #25d366;
-    transform: translateY(-1px);
+    background: linear-gradient(145deg, #128C7E, #25d366);
+}
+
+.contact-detail-actions .btn-info {
+    background: linear-gradient(145deg, #3949ab, #1a237e);
+    border: none;
+    color: white;
+}
+
+.contact-detail-actions .btn-info:hover {
+    background: linear-gradient(145deg, #1a237e, #3949ab);
+}
+
+.contact-detail-actions a {
+    text-decoration: none;
 }
 
 @media (max-width: 480px) {
