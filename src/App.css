@@ -19,63 +19,71 @@ body {
   margin: 0 auto;
 }
 
-/* Header & Navigation */
+/* Header & Navigation - Updated */
 header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
-  background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
+  background: linear-gradient(135deg, #1a237e 0%, #283593 70%, #3949ab 100%);
   color: white;
-  padding: 1rem 0;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 1.2rem 0;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.2);
+  backdrop-filter: blur(5px);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
 header h1 {
   margin: 0;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+  background: linear-gradient(to right, #ffffff, #e8eaf6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .navbar {
-  background-color: #ffffff;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-  padding: 0.5rem 1rem;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+  padding: 0.8rem 1.5rem;
+  border-bottom: 1px solid rgba(26,35,126,0.1);
+  transition: all 0.3s ease;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.navbar:hover {
+  box-shadow: 0 6px 8px -1px rgba(0,0,0,0.15), 0 3px 6px -1px rgba(0,0,0,0.1);
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-/* Ajuste para el contenido debajo del header fijo */
+/* Ajuste para el contenido debajo del header actualizado */
 .main-content {
-  margin-top: 80px; /* Ajusta este valor según la altura de tu header */
-  padding: 20px;
-  min-height: calc(100vh - 80px);
+  margin-top: 90px;
+  padding: 25px;
+  min-height: calc(100vh - 90px);
+  background: linear-gradient(to bottom, #f8f9fa 0%, #ffffff 100%);
+}
+
+@media (max-width: 768px) {
+  header {
+    padding: 1rem 0;
+  }
+
+  header h1 {
+    font-size: 1.4rem;
+  }
+
+  .navbar {
+    padding: 0.6rem 1rem;
+  }
+
+  .main-content {
+    margin-top: 75px;
+    padding: 15px;
+  }
 }
 
 /* Cards & Lists */
@@ -138,20 +146,117 @@ header h1 {
 
 /* Buttons */
 .btn {
-  padding: 0.5rem 1.5rem;
   font-weight: 500;
-  border-radius: 4px;
-  transition: all 0.2s ease;
-}
-
-.btn-primary {
-  background: #1a237e;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  padding: 8px 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border: none;
 }
 
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Variantes de botones */
+.btn-primary {
+  background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
+  color: white;
+}
+
 .btn-primary:hover {
-  background: #283593;
-  transform: translateY(-1px);
+  background: linear-gradient(135deg, #283593 0%, #1a237e 100%);
+}
+
+.btn-secondary {
+  background: linear-gradient(135deg, #424242 0%, #303030 100%);
+  color: white;
+}
+
+.btn-secondary:hover {
+  background: linear-gradient(135deg, #303030 0%, #424242 100%);
+}
+
+.btn-success {
+  background: linear-gradient(135deg, #2e7d32 0%, #1b5e20 100%);
+  color: white;
+}
+
+.btn-success:hover {
+  background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 100%);
+}
+
+.btn-danger {
+  background: linear-gradient(135deg, #c62828 0%, #b71c1c 100%);
+  color: white;
+}
+
+.btn-danger:hover {
+  background: linear-gradient(135deg, #b71c1c 0%, #c62828 100%);
+}
+
+.btn-warning {
+  background: linear-gradient(135deg, #f57f17 0%, #f9a825 100%);
+  color: white;
+}
+
+.btn-warning:hover {
+  background: linear-gradient(135deg, #f9a825 0%, #f57f17 100%);
+}
+
+.btn-info {
+  background: linear-gradient(135deg, #0288d1 0%, #01579b 100%);
+  color: white;
+}
+
+.btn-info:hover {
+  background: linear-gradient(135deg, #01579b 0%, #0288d1 100%);
+}
+
+/* Tamaños de botones */
+.btn-sm {
+  padding: 6px 12px;
+  font-size: 0.875rem;
+}
+
+.btn-lg {
+  padding: 12px 24px;
+  font-size: 1.125rem;
+}
+
+/* Estados de botones */
+.btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(26, 35, 126, 0.25);
+}
+
+/* Spinner en botones */
+.btn .spinner-border {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.5rem;
+}
+
+/* Grupos de botones */
+.btn-group {
+  gap: 8px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 /* Search Input */

@@ -1,0 +1,58 @@
+/* Contenedor principal */
+.contact-pinned {
+    border: 2px solid #007bff; /* Borde azul */
+    border-radius: 12px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    margin: 0 auto; /* Centrar el componente horizontalmente */
+    background-color: #ffffff; /* Fondo blanco */
+    padding: 16px; /* Espaciado interno */
+    max-width: 400px; /* Ancho máximo del componente */
+    text-align: center; /* Centrar el contenido */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Animación al pasar el mouse */
+}
+
+/* Efecto hover */
+.contact-pinned:hover {
+    transform: translateY(-5px); /* Eleva el componente */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada */
+}
+
+/* Título del contacto */
+.contact-pinned h3 {
+    font-size: 1.5rem; /* Tamaño de fuente */
+    color: #0056b3; /* Azul más oscuro */
+    font-weight: bold; /* Negrita */
+    margin-bottom: 12px; /* Espaciado inferior */
+    text-transform: capitalize; /* Capitalizar texto */
+}
+
+/* Detalles del contacto */
+.contact-pinned span {
+    display: block; /* Cada detalle en una nueva línea */
+    font-size: 1rem; /* Tamaño de fuente */
+    color: #333333; /* Color gris oscuro */
+    margin-bottom: 8px; /* Espaciado entre líneas */
+    line-height: 1.5; /* Altura de línea */
+}
+
+/* Iconos dentro de los detalles */
+.contact-pinned span i {
+    color: #007bff; /* Azul para los iconos */
+    margin-right: 8px; /* Espaciado entre el icono y el texto */
+    font-size: 1.2rem; /* Tamaño del icono */
+}
+
+/* Botón de limpiar */
+.contact-pinned .btn-danger {
+    margin-top: 16px; /* Espaciado superior */
+    font-size: 0.9rem; /* Tamaño de fuente del botón */
+    padding: 8px 16px; /* Espaciado interno del botón */
+    border-radius: 8px; /* Bordes redondeados */
+    transition: background-color 0.2s ease, transform 0.2s ease; /* Animación */
+}
+
+/* Efecto hover en el botón */
+.contact-pinned .btn-danger:hover {
+    background-color: #dc3545; /* Rojo más intenso */
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño */
+}

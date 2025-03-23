@@ -5,15 +5,15 @@ export const fetchContacts = async () => {
     try {
         const response = await fetch(`${API_URL}`);
         if (!response.ok) {
-            throw new Error('Ocurrió un error al cargar contactos');
+            throw new Error('Error al obtener contactos de la API');
         }
-        return await response.json();
+        const data = await response.json();
+        if (!Array.isArray(data)) {
+            throw new Error('La respuesta de la API no es un array');
+        }
+        return data;
     } catch (error) {
-        if (error instanceof TypeError) {
-            console.error('Error de red: No se pudo conectar con la API');
-            throw new Error('Error de red: No se pudo conectar con la API');
-        }
-        console.error(error.message);
+        console.error('Error en fetchContacts:', error.message);
         throw error;
     }
 };

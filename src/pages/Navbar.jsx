@@ -11,7 +11,7 @@ function NavigationBar() {
                 <Navbar.Toggle aria-controls="navbar-nav" />
                 <Navbar.Collapse id="navbar-nav">
                     <Nav className="ms-auto">
-                        <NavLink to="/" exact className="nav-link">
+                        <NavLink to="/" className="nav-link">
                             Agenda
                         </NavLink>
                         <NavLink to="/create" className="nav-link">
