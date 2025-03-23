@@ -31,15 +31,29 @@ function App() {
     const loadContacts = async () => {
         setIsLoading(true);
         setErrorMessage(null);
+
         try {
-            const data = await fetchContacts();
-            const contactsWithId = data.map((contact, index) => ({
-                ...contact,
-                id: index + 1,
-            }));
-            setContacts(contactsWithId);
+            // Obtener contactos existentes del LocalStorage
+            const storedContacts = JSON.parse(localStorage.getItem('contacts')) || [];
+
+            // Obtener contactos desde la API
+            const apiContacts = await fetchContacts();
+
+            // Combinar contactos, evitando duplicados (por ejemplo, usando el email como identificador único)
+            const combinedContacts = [
+                ...storedContacts,
+                ...apiContacts.filter(
+                    (apiContact) => !storedContacts.some((storedContact) => storedContact.email === apiContact.email)
+                ),
+            ];
+
+            // Guardar los contactos combinados en el LocalStorage
+            localStorage.setItem('contacts', JSON.stringify(combinedContacts));
+
+            // Actualizar el estado de contactos
+            setContacts(combinedContacts);
         } catch (error) {
-            setErrorMessage(error.message);
+            setErrorMessage('Error al cargar contactos: ' + error.message);
         } finally {
             setIsLoading(false);
         }
@@ -63,20 +77,30 @@ function App() {
     const syncContacts = async () => {
         setIsLoading(true);
         setErrorMessage(null);
+
         try {
-            const data = await fetchContacts();
-            const contactsWithId = data.map((contact, index) => ({
-                ...contact,
-                id: index + 1,
-            }));
-            setContacts(contactsWithId);
-            try {
-                localStorage.setItem('contacts', JSON.stringify(contactsWithId));
-                alert('Sincronización exitosa: Datos actualizados desde la API y guardados en LocalStorage.');
-            } catch (storageError) {
-                console.error('Error al guardar en localStorage:', storageError.message);
-                alert('Error al guardar datos en localStorage.');
-            }
+            // Obtener contactos existentes del LocalStorage
+            const storedContacts = JSON.parse(localStorage.getItem('contacts')) || [];
+
+            // Obtener contactos desde la API
+            const apiContacts = await fetchContacts();
+
+            // Combinar contactos, evitando duplicados (por ejemplo, usando el email como identificador único)
+            const combinedContacts = [
+                ...storedContacts,
+                ...apiContacts.filter(
+                    (apiContact) => !storedContacts.some((storedContact) => storedContact.email === apiContact.email)
+                ),
+            ];
+
+            // Guardar los contactos combinados en el LocalStorage
+            localStorage.setItem('contacts', JSON.stringify(combinedContacts));
+
+            // Actualizar el estado de contactos
+            setContacts(combinedContacts);
+
+            // Mostrar mensaje de éxito
+            alert('Sincronización exitosa: Los datos de la API se han agregado al LocalStorage.');
         } catch (error) {
             setErrorMessage('Error al sincronizar datos: ' + error.message);
         } finally {
