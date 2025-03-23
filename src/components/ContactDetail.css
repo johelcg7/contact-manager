@@ -1,0 +1,54 @@
+/* Contenedor principal */
+.contact-detail {
+    border: 1px solid #dee2e6; /* Borde gris claro */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    margin: 20px auto; /* Centrar el componente horizontalmente */
+    background-color: #ffffff; /* Fondo blanco */
+    padding: 20px; /* Espaciado interno */
+    max-width: 400px; /* Ancho máximo del componente */
+    text-align: left; /* Alinear el texto a la izquierda */
+    font-family: 'Arial', sans-serif; /* Fuente profesional */
+}
+
+/* Título del contacto */
+.contact-detail h2 {
+    font-size: 1.6rem; /* Tamaño de fuente */
+    color: #343a40; /* Gris oscuro */
+    font-weight: bold; /* Negrita */
+    margin-bottom: 16px; /* Espaciado inferior */
+    text-align: center; /* Centrar el título */
+}
+
+/* Detalles del contacto */
+.contact-detail span {
+    display: flex; /* Alinear iconos y texto en fila */
+    align-items: center; /* Centrar verticalmente */
+    font-size: 1rem; /* Tamaño de fuente */
+    color: #495057; /* Gris oscuro */
+    margin-bottom: 12px; /* Espaciado entre líneas */
+    line-height: 1.5; /* Altura de línea */
+}
+
+/* Iconos dentro de los detalles */
+.contact-detail span i {
+    color: #007bff; /* Azul para los iconos */
+    margin-right: 8px; /* Espaciado entre el icono y el texto */
+    font-size: 1.2rem; /* Tamaño del icono */
+}
+
+/* Botón de volver */
+.contact-detail .btn-primary {
+    display: block; /* Botón ocupa toda la fila */
+    margin: 20px auto 0; /* Centrar el botón */
+    font-size: 1rem; /* Tamaño de fuente del botón */
+    padding: 10px 20px; /* Espaciado interno del botón */
+    border-radius: 8px; /* Bordes redondeados */
+    transition: background-color 0.2s ease, transform 0.2s ease; /* Animación */
+}
+
+/* Efecto hover en el botón */
+.contact-detail .btn-primary:hover {
+    background-color: #0056b3; /* Azul más oscuro */
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño */
+}

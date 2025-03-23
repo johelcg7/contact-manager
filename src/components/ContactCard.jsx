@@ -17,14 +17,14 @@ const ContactCard = ({ contact, onClick }) => {
                 </Card.Title>
                 <Card.Text>
                     <div className="contact-info">
-                        <p className="mb-1">
+                        <span className="mb-1 d-block">
                             <i className="bi bi-telephone me-2"></i>
                             {contact.phonenumber}
-                        </p>
-                        <p className="mb-1">
+                        </span>
+                        <span className="mb-1 d-block">
                             <i className="bi bi-envelope me-2"></i>
                             {contact.email}
-                        </p>
+                        </span>
                         <span className={`badge bg-${contact.type === 'familia' ? 'primary' : contact.type === 'trabajo' ? 'success' : 'info'}`}>
                             {contact.type}
                         </span>
