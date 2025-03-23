@@ -8,10 +8,49 @@
 
 .fixed-navbar .nav-link {
     font-size: 14px; /* Tamaño de fuente consistente */
-    padding: 0 10px; /* Espaciado entre enlaces */
+    padding: 0.5rem 1rem; /* Espaciado entre enlaces */
+    transition: color 0.3s ease;
 }
 
 .fixed-navbar .navbar-brand {
     font-size: 18px; /* Tamaño de fuente para el título */
     font-weight: bold;
+}
+
+/* Estilos para el menú móvil */
+.navbar-collapse {
+    transition: all 0.3s ease-in-out;
+}
+
+@media (max-width: 768px) {
+    .navbar-nav {
+        background: #1a237e;
+        border-radius: 0 0 8px 8px;
+        padding: 1rem 0;
+        margin-top: 0.5rem;
+    }
+
+    .nav-link {
+        padding: 0.75rem 1.5rem !important;
+        text-align: center;
+    }
+
+    .nav-link:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .navbar-toggler {
+        border: none;
+        padding: 0.25rem 0.5rem;
+    }
+
+    .navbar-toggler:focus {
+        box-shadow: none;
+        outline: none;
+    }
+
+    .navbar-toggler-icon {
+        width: 1.25em;
+        height: 1.25em;
+    }
 }
