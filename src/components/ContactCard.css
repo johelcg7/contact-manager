@@ -1,0 +1,47 @@
+.contact-card {
+  background: white;
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-sm);
+  padding: var(--spacing-sm);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.contact-card h3 {
+  font-size: 1.1rem;
+  color: var(--primary);
+  font-weight: 600;
+  margin-bottom: var(--spacing-xs);
+}
+
+.contact-card p {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0.2rem 0;
+}
+
+.contact-card .badge {
+  padding: 0.4rem 0.8rem;
+  border-radius: var(--border-radius-sm);
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.contact-card .badge.bg-primary {
+  background: var(--primary);
+  color: white;
+}
+
+.contact-card .badge.bg-success {
+  background: var(--success-color);
+  color: white;
+}
+
+.contact-card .badge.bg-info {
+  background: var(--info-color);
+  color: white;
+}

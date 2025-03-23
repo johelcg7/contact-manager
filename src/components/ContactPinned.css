@@ -1,58 +1,115 @@
 /* Contenedor principal */
 .contact-pinned {
-    border: 2px solid #007bff; /* Borde azul */
-    border-radius: 12px; /* Bordes redondeados */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
-    margin: 0 auto; /* Centrar el componente horizontalmente */
-    background-color: #ffffff; /* Fondo blanco */
-    padding: 16px; /* Espaciado interno */
-    max-width: 400px; /* Ancho máximo del componente */
-    text-align: center; /* Centrar el contenido */
-    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Animación al pasar el mouse */
+    position: sticky;
+    top: 180px; /* Ajustado para estar debajo del header y navbar */
+    height: fit-content;
+    width: 280px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: var(--shadow-md);
+    margin-left: 1rem;
+    border: 1px solid rgba(0,0,0,0.1);
+    z-index: 997;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Efecto hover */
 .contact-pinned:hover {
-    transform: translateY(-5px); /* Eleva el componente */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada */
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
 }
 
 /* Título del contacto */
 .contact-pinned h3 {
-    font-size: 1.5rem; /* Tamaño de fuente */
-    color: #0056b3; /* Azul más oscuro */
-    font-weight: bold; /* Negrita */
-    margin-bottom: 12px; /* Espaciado inferior */
-    text-transform: capitalize; /* Capitalizar texto */
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    font-weight: 600;
 }
 
 /* Detalles del contacto */
 .contact-pinned span {
-    display: block; /* Cada detalle en una nueva línea */
-    font-size: 1rem; /* Tamaño de fuente */
-    color: #333333; /* Color gris oscuro */
-    margin-bottom: 8px; /* Espaciado entre líneas */
-    line-height: 1.5; /* Altura de línea */
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+    color: var(--text-secondary);
 }
 
 /* Iconos dentro de los detalles */
 .contact-pinned span i {
-    color: #007bff; /* Azul para los iconos */
-    margin-right: 8px; /* Espaciado entre el icono y el texto */
-    font-size: 1.2rem; /* Tamaño del icono */
+    color: var(--primary-color); /* Azul para los iconos */
+    font-size: 1rem; /* Tamaño del icono */
 }
 
 /* Botón de limpiar */
 .contact-pinned .btn-danger {
-    margin-top: 16px; /* Espaciado superior */
-    font-size: 0.9rem; /* Tamaño de fuente del botón */
-    padding: 8px 16px; /* Espaciado interno del botón */
-    border-radius: 8px; /* Bordes redondeados */
-    transition: background-color 0.2s ease, transform 0.2s ease; /* Animación */
+    background: var(--danger-color);
+    color: white;
+    border-radius: var(--border-radius-sm);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+.contact-pinned .btn {
+    margin-top: 1rem;
+    width: 100%;
+    padding: 0.5rem;
 }
 
 /* Efecto hover en el botón */
 .contact-pinned .btn-danger:hover {
-    background-color: #dc3545; /* Rojo más intenso */
-    transform: scale(1.05); /* Aumenta ligeramente el tamaño */
+    background: #b71c1c;
+    transform: scale(1.05);
+}
+
+.contact-pinned .card-body {
+    padding: 1rem;
+}
+
+.contact-pinned .card-title {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+@media (max-width: 992px) {
+    .contact-pinned {
+        position: fixed;
+        bottom: 1rem;
+        top: auto;
+        right: 1rem;
+        width: 300px;
+        margin: 0;
+        z-index: 1000;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-pinned {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        width: 100%;
+        border-radius: 12px 12px 0 0;
+        padding: var(--spacing-sm);
+        margin: 0;
+    }
+
+    .contact-pinned h3 {
+        font-size: 1rem;
+    }
+
+    .contact-pinned span {
+        font-size: 0.85rem;
+    }
 }

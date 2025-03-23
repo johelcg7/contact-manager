@@ -10,32 +10,67 @@ function NavigationBar() {
 
     return (
         <Navbar 
-            bg="primary" 
-            variant="dark" 
             expand="sm" 
-            className="mb-3 fixed-navbar"
+            className="fixed-navbar"
             expanded={expanded}
             onToggle={() => setExpanded(!expanded)}
         >
-            <Container>
-                <Navbar.Brand href="/">Contact Manager</Navbar.Brand>
-                <Navbar.Toggle aria-controls="navbar-nav" />
-                <Navbar.Collapse id="navbar-nav">
-                    <Nav className="ms-auto">
+            <Container className="nav-container">
+                <Navbar.Toggle aria-controls="navbar-nav">
+                    <i className="bi bi-grid"></i>
+                </Navbar.Toggle>
+                <Navbar.Collapse id="navbar-nav" className="justify-content-center">
+                    <Nav>
                         <NavLink 
                             to="/" 
-                            className="nav-link" 
+                            className={({isActive}) => 
+                                `nav-link d-flex align-items-center justify-content-center ${isActive ? 'active' : ''}`
+                            }
                             onClick={closeMenu}
                             end
                         >
-                            Agenda
+                            <i className="bi bi-journal-text"></i>
+                            Todos                     </NavLink>
+                       
+                        <NavLink 
+                            to="/social" 
+                            className={({isActive}) => 
+                                `nav-link d-flex align-items-center justify-content-center ${isActive ? 'active' : ''}`
+                            }
+                            onClick={closeMenu}
+                        >
+                            <i className="bi bi-people-fill"></i>
+                            Social
+                        </NavLink>
+                        <NavLink 
+                            to="/familia" 
+                            className={({isActive}) => 
+                                `nav-link d-flex align-items-center justify-content-center ${isActive ? 'active' : ''}`
+                            }
+                            onClick={closeMenu}
+                        >
+                            <i className="bi bi-house-heart-fill"></i>
+                            Familia
+                        </NavLink>
+                        <NavLink 
+                            to="/trabajo" 
+                            className={({isActive}) => 
+                                `nav-link d-flex align-items-center justify-content-center ${isActive ? 'active' : ''}`
+                            }
+                            onClick={closeMenu}
+                        >
+                            <i className="bi bi-briefcase-fill"></i>
+                            Trabajo
                         </NavLink>
                         <NavLink 
                             to="/create" 
-                            className="nav-link"
+                            className={({isActive}) => 
+                                `nav-link d-flex align-items-center justify-content-center ${isActive ? 'active' : ''}`
+                            }
                             onClick={closeMenu}
                         >
-                            Crear
+                            <i className="bi bi-person-plus-fill"></i>
+                            Crear Contacto
                         </NavLink>
                     </Nav>
                 </Navbar.Collapse>

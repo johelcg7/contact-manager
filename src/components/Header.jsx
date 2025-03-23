@@ -1,19 +1,22 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
+import './Header.css';
 
 function Header() {
   return (
-    <header>
-      <Container fluid className="px-3">
+    <header className="app-header">
+      <Container fluid>
         <Row className="align-items-center">
           <Col xs={12} md={6}>
-            <h1 className="mb-0" style={{ fontSize: '1.8rem', fontWeight: '600' }}>
+            <h1>
+              <i className="bi bi-person-lines-fill me-2"></i>
               Contact Manager
             </h1>
           </Col>
-          <Col xs={12} md={6}>
-            <p className="text-end mb-0 d-none d-md-block" style={{ fontSize: '1rem', opacity: '0.9' }}>
-              Gestiona tus contactos de manera eficiente
+          <Col xs={12} md={6} className="d-none d-md-block text-end">
+            <p>
+              <i className="bi bi-shield-check me-2"></i>
+              Sistema de Gestión de Contactos Profesional
             </p>
           </Col>
         </Row>

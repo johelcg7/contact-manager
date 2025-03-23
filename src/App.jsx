@@ -158,43 +158,51 @@ function App() {
     return (
         <>
             <Header />
-            <div className="main-content">
-                <Container fluid>
-                    <NavigationBar />
+            <NavigationBar
+            />
+
+            <div className="controls-fixed">
+                <div className="controls-container">
+                    <div className="d-flex justify-content-between align-items-center mb-2">
+                        <Button variant="primary" size="sm" onClick={toggleView}>
+                            {isListView ? 'Vista Tarjetas' : 'Vista Lista'}
+                        </Button>
+                        <Button variant="secondary" size="sm" onClick={loadContacts} disabled={isLoading}>
+                            {isLoading ? <Spinner animation="border" size="sm" /> : 'Refrescar'}
+                        </Button>
+                        <Button variant="success" size="sm" onClick={saveContactsToLocalStorage}>
+                            Guardar Contacto en LS
+                        </Button>
+                        <Button variant="info" size="sm" onClick={loadContactsFromLocalStorage}>
+                            Cargar Contactos desde LS
+                        </Button>
+                        <Button variant="warning" size="sm" onClick={syncContacts} disabled={isLoading}>
+                            {isLoading ? <Spinner animation="border" size="sm" /> : 'Sincronizar Datos'}
+                        </Button>
+                        <Button variant="danger" size="sm" onClick={clearContactsFromLocalStorage}>
+                            Eliminar Todo
+                        </Button>
+                    </div>
+                    <div className="search-container">
+                        <Form.Control
+                            type="text"
+                            placeholder="Buscar contactos..."
+                            value={searchTerm}
+                            onChange={(e) => setSearchTerm(e.target.value)}
+                            className="search-input"
+                        />
+                    </div>
+                </div>
+            </div>
+
+            <div className="main-content" > 
+                <Container fluid > 
                     <Routes>
                         <Route
                             path="/"
                             element={
                                 <>
-                                    <div className="d-flex justify-content-between align-items-center mb-2">
-                                        <Button variant="primary" size="sm" onClick={toggleView}>
-                                            {isListView ? 'Vista Tarjetas' : 'Vista Lista'}
-                                        </Button>
-                                        <Button variant="secondary" size="sm" onClick={loadContacts} disabled={isLoading}>
-                                            {isLoading ? <Spinner animation="border" size="sm" /> : 'Refrescar'}
-                                        </Button>
-                                        <Button variant="success" size="sm" onClick={saveContactsToLocalStorage}>
-                                            Guardar Contacto en LS
-                                        </Button>
-                                        <Button variant="info" size="sm" onClick={loadContactsFromLocalStorage}>
-                                            Cargar Contactos desde LS
-                                        </Button>
-                                        <Button variant="warning" size="sm" onClick={syncContacts} disabled={isLoading}>
-                                            {isLoading ? <Spinner animation="border" size="sm" /> : 'Sincronizar Datos'}
-                                        </Button>
-                                        <Button variant="danger" size="sm" onClick={clearContactsFromLocalStorage}>
-                                            Eliminar Todo
-                                        </Button>
-                                    </div>
-                                    <Form.Control
-                                        type="text"
-                                        placeholder="Buscar..."
-                                        value={searchTerm}
-                                        onChange={(e) => setSearchTerm(e.target.value)}
-                                        className="mb-2"
-                                        size="sm"
-                                    />
-                                    <Row>
+                                    <Row >
                                         <Col xs={12} md={8}>
                                             {isListView ? (
                                                 <ContactList
@@ -226,6 +234,7 @@ function App() {
                                 </>
                             }
                         />
+
                         <Route
                             path="/create"
                             element={
@@ -244,6 +253,49 @@ function App() {
                             path="/contact/:id/schedule"
                             element={<ScheduleMeeting />}
                         />
+                    </Routes>
+                    <Routes>
+                        <Route
+                            path="/"
+                            element={
+                                <ContactList
+                                    contacts={contacts}
+                                    onContactClick={setFeaturedContactWithPersistence}
+                                    selectedContact={featuredContact}
+                                />
+                            }
+                        />
+                        <Route
+                            path="/social"
+                            element={
+                                <ContactList
+                                    contacts={contacts.filter(contact => contact.type === 'social')}
+                                    onContactClick={setFeaturedContactWithPersistence}
+                                    selectedContact={featuredContact}
+                                />
+                            }
+                        />
+                        <Route
+                            path="/familia"
+                            element={
+                                <ContactList
+                                    contacts={contacts.filter(contact => contact.type === 'familia')}
+                                    onContactClick={setFeaturedContactWithPersistence}
+                                    selectedContact={featuredContact}
+                                />
+                            }
+                        />
+                        <Route
+                            path="/trabajo"
+                            element={
+                                <ContactList
+                                    contacts={contacts.filter(contact => contact.type === 'trabajo')}
+                                    onContactClick={setFeaturedContactWithPersistence}
+                                    selectedContact={featuredContact}
+                                />
+                            }
+                        />
+
                     </Routes>
                 </Container>
             </div>
