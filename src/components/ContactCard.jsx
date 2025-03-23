@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const ContactCard = ({ contact, onClick }) => {
     return (
@@ -13,7 +14,13 @@ const ContactCard = ({ contact, onClick }) => {
                     <div className="avatar me-2">
                         {contact.fullname.charAt(0).toUpperCase()}
                     </div>
-                    {contact.fullname}
+                    <Link 
+                        to={`/contact/${contact.id}`} 
+                        style={{ textDecoration: 'none', color: '#1a237e', fontWeight: 'bold' }}
+                        onClick={(e) => e.stopPropagation()} // Evita que el evento de clic se propague al contenedor
+                    >
+                        {contact.fullname}
+                    </Link>
                 </Card.Title>
                 <Card.Text>
                     <div className="contact-info">

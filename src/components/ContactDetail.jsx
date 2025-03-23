@@ -12,24 +12,40 @@ function ContactDetail({ contacts }) {
         return <p>Contacto no encontrado.</p>;
     }
 
+    const handleWhatsAppClick = () => {
+        const whatsappUrl = `https://wa.me/${contact.phonenumber.replace(/[^0-9]/g, '')}`;
+        window.open(whatsappUrl, '_blank'); // Abre WhatsApp en una nueva pestaña
+    };
+
     return (
         <div className="contact-detail">
-            <h2>{contact.fullname}</h2>
-            <span>
-                <i className="bi bi-telephone"></i> {/* Icono de teléfono */}
-                <strong>Teléfono:</strong> {contact.phonenumber}
-            </span>
-            <span>
-                <i className="bi bi-envelope"></i> {/* Icono de correo */}
-                <strong>Email:</strong> {contact.email}
-            </span>
-            <span>
-                <i className="bi bi-person-badge"></i> {/* Icono de tipo */}
-                <strong>Tipo:</strong> {contact.type}
-            </span>
-            <Button variant="primary" onClick={() => navigate('/')}>
-                Volver a la Lista
-            </Button>
+            <div className="contact-detail-header">
+                <div className="contact-detail-avatar">
+                    {contact.fullname[0]}
+                </div>
+                <div className="contact-detail-title">
+                    <h2>{contact.fullname}</h2>
+                    <span className="contact-type">{contact.type}</span>
+                </div>
+            </div>
+            <div className="contact-detail-info">
+                <div className="contact-detail-field">
+                    <label><i className="bi bi-telephone"></i> Teléfono</label>
+                    <p>{contact.phonenumber}</p>
+                </div>
+                <div className="contact-detail-field">
+                    <label><i className="bi bi-envelope"></i> Email</label>
+                    <p>{contact.email}</p>
+                </div>
+            </div>
+            <div className="contact-detail-actions">
+                <Button variant="outline-primary" onClick={() => navigate('/')}>
+                    <i className="bi bi-arrow-left"></i> Volver
+                </Button>
+                <Button variant="success" onClick={handleWhatsAppClick}>
+                    <i className="bi bi-whatsapp"></i> WhatsApp
+                </Button>
+            </div>
         </div>
     );
 }

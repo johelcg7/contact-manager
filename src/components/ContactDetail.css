@@ -1,54 +1,163 @@
 /* Contenedor principal */
 .contact-detail {
-    border: 1px solid #dee2e6; /* Borde gris claro */
-    border-radius: 10px; /* Bordes redondeados */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
-    margin: 20px auto; /* Centrar el componente horizontalmente */
-    background-color: #ffffff; /* Fondo blanco */
-    padding: 20px; /* Espaciado interno */
-    max-width: 400px; /* Ancho máximo del componente */
-    text-align: left; /* Alinear el texto a la izquierda */
-    font-family: 'Arial', sans-serif; /* Fuente profesional */
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    margin: 16px auto;
+    background-color: #ffffff;
+    padding: 1.5rem;
+    max-width: 600px;
+    color: initial;
 }
 
-/* Título del contacto */
-.contact-detail h2 {
-    font-size: 1.6rem; /* Tamaño de fuente */
-    color: #343a40; /* Gris oscuro */
-    font-weight: bold; /* Negrita */
-    margin-bottom: 16px; /* Espaciado inferior */
-    text-align: center; /* Centrar el título */
+/* Header con avatar y nombre */
+.contact-detail-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
 }
 
-/* Detalles del contacto */
-.contact-detail span {
-    display: flex; /* Alinear iconos y texto en fila */
-    align-items: center; /* Centrar verticalmente */
-    font-size: 1rem; /* Tamaño de fuente */
-    color: #495057; /* Gris oscuro */
-    margin-bottom: 12px; /* Espaciado entre líneas */
-    line-height: 1.5; /* Altura de línea */
+.contact-detail-avatar {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    box-shadow: 0 4px 8px rgba(26,35,126,0.2);
 }
 
-/* Iconos dentro de los detalles */
-.contact-detail span i {
-    color: #007bff; /* Azul para los iconos */
-    margin-right: 8px; /* Espaciado entre el icono y el texto */
-    font-size: 1.2rem; /* Tamaño del icono */
+.contact-detail-title {
+    flex: 1;
 }
 
-/* Botón de volver */
-.contact-detail .btn-primary {
-    display: block; /* Botón ocupa toda la fila */
-    margin: 20px auto 0; /* Centrar el botón */
-    font-size: 1rem; /* Tamaño de fuente del botón */
-    padding: 10px 20px; /* Espaciado interno del botón */
-    border-radius: 8px; /* Bordes redondeados */
-    transition: background-color 0.2s ease, transform 0.2s ease; /* Animación */
+.contact-detail-title h2 {
+    font-size: 1.4rem;
+    color: #1a237e;
+    margin: 0 0 0.3rem 0;
+    font-weight: 600;
 }
 
-/* Efecto hover en el botón */
-.contact-detail .btn-primary:hover {
-    background-color: #0056b3; /* Azul más oscuro */
-    transform: scale(1.05); /* Aumenta ligeramente el tamaño */
+.contact-type {
+    display: inline-block;
+    padding: 0.2rem 0.8rem;
+    background: rgba(26,35,126,0.1);
+    color: #1a237e;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+/* Campos de información */
+.contact-detail-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.contact-detail-field {
+    background: #f8f9fa;
+    padding: 0.8rem;
+    border-radius: 8px;
+    border-left: 3px solid #1a237e;
+    backdrop-filter: blur(5px);
+}
+
+.contact-detail-field label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #666;
+    font-size: 0.8rem;
+    margin-bottom: 0.2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.contact-detail-field label i {
+    color: #1a237e;
+}
+
+.contact-detail-field p {
+    color: #333;
+    font-size: 1rem;
+    margin: 0;
+    font-weight: 500;
+}
+
+/* Botones de acción */
+.contact-detail-actions {
+    display: flex;
+    gap: 0.8rem;
+    justify-content: flex-end;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+}
+
+.contact-detail-actions .btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.contact-detail-actions .btn i {
+    font-size: 1.1rem;
+}
+
+.contact-detail-actions .btn-outline-primary {
+    border: 1px solid #1a237e;
+    color: #1a237e;
+    background: rgba(57, 73, 171, 0.1);
+}
+
+.contact-detail-actions .btn-outline-primary:hover {
+    background: #3949ab;
+    color: white;
+    transform: translateY(-1px);
+}
+
+.contact-detail-actions .btn-success {
+    background: rgba(37, 211, 102, 0.8);
+    border: none;
+}
+
+.contact-detail-actions .btn-success:hover {
+    background: #25d366;
+    transform: translateY(-1px);
+}
+
+@media (max-width: 480px) {
+    .contact-detail {
+        margin: 10px;
+        padding: 1rem;
+    }
+
+    .contact-detail-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.8rem;
+    }
+
+    .contact-detail-actions {
+        flex-direction: column;
+    }
+
+    .contact-detail-actions .btn {
+        width: 100%;
+        justify-content: center;
+    }
 }
